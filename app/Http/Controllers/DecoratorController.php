@@ -13,6 +13,13 @@ class DecoratorController extends Controller
         return view("index", compact("decorators"));
     }
 
+    public function show($id)
+    {
+        $decorator = Decorator::find($id);
+        $decorators = Decorator::paginate(10);
+        return view('detail', compact('decorator', 'decorators'));
+    }
+
     public function searchByName(Request $request)
     {
         $name = $request->input('name');

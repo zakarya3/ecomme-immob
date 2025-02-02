@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [DecoratorController::class,'index'])->name('inex');
 Route::get('/search', [DecoratorController::class, 'searchByName'])->name('search');
 Route::get('/category', [DecoratorController::class, 'searchByCategory'])->name('category');
+Route::get('/decorator/{id}', [DecoratorController::class, 'show'])->name('decorator.show');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard/decorator/create', [DashboardController::class, 'create'])->middleware(['auth', 'verified'])->name('dashboard.decorator.create');
