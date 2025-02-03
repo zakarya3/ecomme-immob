@@ -102,7 +102,7 @@
                     <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase">
-                                Immobillier ID</th>
+                                Immobillier Name</th>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase">
                                 Client</th>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase">
@@ -116,7 +116,7 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($commands as $command)
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-center">{{ $command->decorator_id }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-center">{{ $command->panels->decorators->name }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-center">{{ $command->client_name }} </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-center">
                                     {{ $command->client_email }}</td>

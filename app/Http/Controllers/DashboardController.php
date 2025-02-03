@@ -12,7 +12,7 @@ class DashboardController extends Controller
     public function index()
     {
         $decorators = Decorator::paginate(10);
-        $commands = Commande::paginate(10);
+        $commands = Commande::with('panels.decorators')->paginate(10);
         return view("dashboard", compact("decorators", "commands"));
     }
 
@@ -62,6 +62,14 @@ class DashboardController extends Controller
     public function destroy($id)
     {
         Decorator::findOrFail($id)->delete();
+        return redirect()->route("dashboard")->with("success","");
+    }
+
+    public function updateCommandeStatus(Request $request, $id)
+    {
+        Commande::findOrFail($id)->update([
+            "status" => $request->status,
+        ]);
         return redirect()->route("dashboard")->with("success","");
     }
 }
